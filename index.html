@@ -1,23 +1,22 @@
-<!-- index.html -->
+html
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>내게 맞는 차 찾기 - 맞춤 차량 추천</title>
-    <meta name="description" content="몇 가지 질문으로 당신에게 완벽한 차량을 추천해드립니다. 무료 차량 추천 서비스">
-    <meta name="keywords" content="차량추천, 자동차, 중고차, 신차, 차량구매, 자동차추천, SUV, 세단, 하이브리드, 전기차">
-    
-    <!-- Google AdSense 코드 (승인받으면 여기에 삽입) -->
-    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID" crossorigin="anonymous"></script> -->
-    
+    <title>내게 맞는 중고차 찾기 - 맞춤 차량 추천</title>
+    <meta name="description" content="몇 가지 질문으로 당신에게 완벽한 중고차를 추천해드립니다. 무료 중고차 추천 서비스">
+    <meta name="keywords" content="중고차추천, 중고자동차, 중고차, 차량구매, 중고차추천, 중고SUV, 중고세단, 중고하이브리드, 중고전기차">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4453943782087634" crossorigin="anonymous"></script>
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -25,7 +24,7 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -34,111 +33,70 @@
             grid-template-columns: 1fr 300px;
             gap: 20px;
         }
-        
+
         .main-content {
             background: white;
             border-radius: 15px;
             padding: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-        
+
         .sidebar {
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
-        
-        /* 상단 광고 배너 */
-        .top-ad {
-            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
-            height: 90px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            margin-bottom: 20px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        
-        .top-ad:hover {
-            transform: translateY(-2px);
-        }
-        
-        /* AdSense 광고 실제 코드가 들어갈 영역 */
+
+        /* AdSense 광고 실제 코드가 들어갈 영역의 최소 높이 확보 */
         .adsense-banner {
-            min-height: 90px;
+            min-height: 90px; /* 광고가 로드될 최소 공간 확보 */
             margin-bottom: 20px;
             text-align: center;
         }
-        
+
         .adsense-sidebar {
-            min-height: 250px;
+            min-height: 250px; /* 광고가 로드될 최소 공간 확보 */
             margin-bottom: 20px;
+            text-align: center;
         }
-        
-        /* 사이드바 광고 */
-        .sidebar-ad {
-            background: linear-gradient(45deg, #4ecdc4, #44a08d);
-            height: 250px;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        
-        .sidebar-ad:hover {
-            transform: scale(1.05);
-        }
-        
-        .sidebar-ad:nth-child(2) {
-            background: linear-gradient(45deg, #f093fb, #f5576c);
-        }
-        
+
         h1 {
             color: #2c3e50;
             text-align: center;
             margin-bottom: 10px;
             font-size: 2.5rem;
         }
-        
+
         .subtitle {
             text-align: center;
             color: #7f8c8d;
             margin-bottom: 30px;
             font-size: 1.1rem;
         }
-        
+
         .quiz-container {
             background: #f8f9fa;
             border-radius: 10px;
             padding: 25px;
             margin-bottom: 20px;
         }
-        
+
         .question {
             margin-bottom: 20px;
         }
-        
+
         .question h3 {
             color: #2c3e50;
             margin-bottom: 10px;
             font-size: 1.1rem;
         }
-        
+
         .options {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 10px;
         }
-        
+
         .option {
             background: white;
             border: 2px solid #e9ecef;
@@ -148,18 +106,18 @@
             transition: all 0.3s ease;
             text-align: center;
         }
-        
+
         .option:hover {
             border-color: #667eea;
             background: #f8f9ff;
         }
-        
+
         .option.selected {
             background: #667eea;
             color: white;
             border-color: #667eea;
         }
-        
+
         .recommend-btn {
             background: linear-gradient(45deg, #667eea, #764ba2);
             color: white;
@@ -172,12 +130,12 @@
             margin: 20px auto;
             transition: transform 0.3s ease;
         }
-        
+
         .recommend-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
-        
+
         .result {
             display: none;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -186,7 +144,7 @@
             padding: 30px;
             margin-top: 20px;
         }
-        
+
         .car-card {
             background: rgba(255,255,255,0.1);
             border-radius: 10px;
@@ -194,100 +152,35 @@
             margin: 15px 0;
             backdrop-filter: blur(10px);
         }
-        
+
         .car-name {
             font-size: 1.3rem;
             font-weight: bold;
             margin-bottom: 10px;
         }
-        
+
         .car-details {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 10px;
             margin-bottom: 10px;
         }
-        
+
         .detail-item {
             background: rgba(255,255,255,0.1);
             padding: 8px 12px;
             border-radius: 5px;
             text-align: center;
         }
-        
-        /* 결과 하단 광고 */
-        .bottom-ad {
-            background: linear-gradient(45deg, #fa709a, #fee140);
-            height: 100px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            margin-top: 20px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        
-        .bottom-ad:hover {
-            transform: translateY(-2px);
-        }
-        
-        /* 팝업 광고 */
-        .popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            display: none;
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .popup-ad {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            max-width: 400px;
-            position: relative;
-            animation: popupSlide 0.3s ease-out;
-        }
-        
-        @keyframes popupSlide {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        
-        .close-popup {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-        }
-        
+
+        /* 진행률 바 */
         .progress-bar {
             background: #e9ecef;
             height: 8px;
             border-radius: 4px;
             margin-bottom: 20px;
         }
-        
+
         .progress {
             background: linear-gradient(45deg, #667eea, #764ba2);
             height: 100%;
@@ -295,21 +188,21 @@
             width: 0%;
             transition: width 0.3s ease;
         }
-        
+
         @media (max-width: 768px) {
             .container {
                 grid-template-columns: 1fr;
                 padding: 10px;
             }
-            
+
             .main-content {
                 padding: 20px;
             }
-            
+
             h1 {
                 font-size: 2rem;
             }
-            
+
             .options {
                 grid-template-columns: 1fr;
             }
@@ -317,33 +210,26 @@
     </style>
 </head>
 <body>
-    <!-- 상단 광고 배너 - AdSense 코드로 교체 예정 -->
     <div class="adsense-banner">
-        <!-- 
-        AdSense 승인 후 여기에 실제 광고 코드 삽입:
         <ins class="adsbygoogle"
              style="display:block"
-             data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
-             data-ad-slot="YOUR_AD_SLOT_ID"
-             data-ad-format="auto"></ins>
+             data-ad-client="ca-pub-4453943782087634"
+             data-ad-slot="YOUR_TOP_BANNER_AD_SLOT_ID"  data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
         <script>
              (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
-        -->
-        <div class="top-ad" onclick="handleAdClick('top-banner')">
-            📢 AdSense 광고 영역 (728x90) - 차량 관련 광고
-        </div>
     </div>
 
     <div class="container">
         <div class="main-content">
-            <h1>🚗 내게 맞는 차 찾기</h1>
-            <p class="subtitle">몇 가지 질문으로 당신에게 완벽한 차량을 추천해드릴게요!</p>
-            
+            <h1>🚗 내게 맞는 중고차 찾기</h1>
+            <p class="subtitle">몇 가지 질문으로 당신에게 완벽한 중고차를 추천해드릴게요!</p>
+
             <div class="progress-bar">
                 <div class="progress" id="progress"></div>
             </div>
-            
+
             <div class="quiz-container">
                 <div class="question">
                     <h3>1. 주로 어떤 용도로 차를 이용하시나요?</h3>
@@ -354,7 +240,7 @@
                         <div class="option" data-question="1" data-value="business">업무용</div>
                     </div>
                 </div>
-                
+
                 <div class="question">
                     <h3>2. 선호하는 차량 크기는?</h3>
                     <div class="options">
@@ -364,7 +250,7 @@
                         <div class="option" data-question="2" data-value="suv">SUV</div>
                     </div>
                 </div>
-                
+
                 <div class="question">
                     <h3>3. 연료 타입 선호도는?</h3>
                     <div class="options">
@@ -372,264 +258,294 @@
                         <div class="option" data-question="3" data-value="diesel">경유</div>
                         <div class="option" data-question="3" data-value="hybrid">하이브리드</div>
                         <div class="option" data-question="3" data-value="electric">전기차</div>
+                        <div class="option" data-question="3" data-value="lpg">LPG</div>
                     </div>
                 </div>
-                
+
                 <div class="question">
                     <h3>4. 예상 예산은?</h3>
                     <div class="options">
-                        <div class="option" data-question="4" data-value="budget">2천만원 이하</div>
-                        <div class="option" data-question="4" data-value="mid">2-4천만원</div>
-                        <div class="option" data-question="4" data-value="high">4-6천만원</div>
-                        <div class="option" data-question="4" data-value="premium">6천만원 이상</div>
+                        <div class="option" data-question="4" data-value="under300">300만원 이하</div>
+                        <div class="option" data-question="4" data-value="3m_6m">300만원 ~ 600만원</div>
+                        <div class="option" data-question="4" data-value="6m_9m">600만원 ~ 900만원</div>
+                        <div class="option" data-question="4" data-value="9m_12m">900만원 ~ 1,200만원</div>
+                        <div class="option" data-question="4" data-value="12m_15m">1,200만원 ~ 1,500만원</div>
+                        <div class="option" data-question="4" data-value="15m_18m">1,500만원 ~ 1,800만원</div>
+                        <div class="option" data-question="4" data-value="18m_20m">1,800만원 ~ 2,000만원</div>
                     </div>
                 </div>
-            </div>
-            
-            <button class="recommend-btn" onclick="recommendCar()">내게 맞는 차 추천받기 🚗</button>
-            
-            <div id="result" class="result">
-                <!-- 추천 결과가 여기에 표시됩니다 -->
-            </div>
-            
-            <!-- 결과 하단 광고 - AdSense 코드로 교체 예정 -->
-            <div class="adsense-banner" style="display: none;" id="bottomAdContainer">
-                <div class="bottom-ad" onclick="handleAdClick('bottom-banner')" id="bottomAd">
-                    📢 AdSense 광고 영역 - 자동차 보험 & 금융 상품
-                </div>
-            </div>
-        </div>
-        
-        <div class="sidebar">
-            <!-- 사이드바 광고 1 - AdSense 코드로 교체 예정 -->
-            <div class="adsense-sidebar">
-                <div class="sidebar-ad" onclick="handleAdClick('sidebar-1')">
-                    <div>📢 AdSense 광고</div>
-                    <div>(300x250)</div>
-                    <div>차량 용품 & 액세서리</div>
-                </div>
-            </div>
-            
-            <!-- 사이드바 광고 2 - AdSense 코드로 교체 예정 -->
-            <div class="adsense-sidebar">
-                <div class="sidebar-ad" onclick="handleAdClick('sidebar-2')">
-                    <div>📢 AdSense 광고</div>
-                    <div>(300x250)</div>
-                    <div>중고차 & 렌트카</div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- 팝업 광고 -->
-    <div class="popup-overlay" id="popupOverlay">
-        <div class="popup-ad">
-            <button class="close-popup" onclick="closePopup()">&times;</button>
-            <h2>🎉 특별 할인 이벤트!</h2>
-            <p>지금 가입하면 차량 견적 서비스를 무료로 이용할 수 있어요!</p>
-            <button style="background: #fff; color: #667eea; border: none; padding: 10px 20px; border-radius: 20px; margin-top: 15px; cursor: pointer;" onclick="handleAdClick('popup')">자세히 보기</button>
+                <div class="question">
+                    <h3>5. 선호하는 브랜드 국적은?</h3>
+                    <div class="options">
+                        <div class="option" data-question="5" data-value="domestic">국산차</div>
+                        <div class="option" data-question="5" data-value="imported">수입차</div>
+                    </div>
+                </div>
+                </div>
+
+            <button class="recommend-btn" onclick="recommendCar()">내게 맞는 중고차 추천받기 🚗</button>
+
+            <div id="result" class="result">
+                </div>
+
+            <div class="adsense-banner" style="display: none;" id="bottomAdContainer">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-4453943782087634"
+                     data-ad-slot="YOUR_BOTTOM_AD_SLOT_ID" data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="adsense-sidebar">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-4453943782087634"
+                     data-ad-slot="YOUR_SIDEBAR_AD_SLOT_ID_1" data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            <div class="adsense-sidebar">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-4453943782087634"
+                     data-ad-slot="YOUR_SIDEBAR_AD_SLOT_2" data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
         </div>
     </div>
 
     <script>
-        let answers = {};
-        let currentProgress = 0;
-        
-        // Google Analytics (선택사항)
-        // gtag('config', 'GA_MEASUREMENT_ID');
-        
+        let answers = {}; // 각 질문의 답변을 단일 값으로 저장
+
         // 진행률 업데이트
         function updateProgress() {
-            const totalQuestions = 4;
-            const answeredQuestions = Object.keys(answers).length;
+            const totalQuestions = 5; // 총 질문 수
+            const answeredQuestions = Object.keys(answers).filter(q => answers[q] !== undefined).length; // 선택된 옵션이 있는 질문 수
             const progress = (answeredQuestions / totalQuestions) * 100;
             document.getElementById('progress').style.width = progress + '%';
         }
-        
+
         // 옵션 선택 처리
         document.querySelectorAll('.option').forEach(option => {
             option.addEventListener('click', function() {
                 const question = this.dataset.question;
                 const value = this.dataset.value;
-                
-                // 같은 질문의 다른 옵션들 선택 해제
-                document.querySelectorAll(`[data-question="${question}"]`).forEach(opt => {
+
+                // 해당 질문의 모든 옵션에서 'selected' 클래스 제거
+                document.querySelectorAll(`.option[data-question="${question}"]`).forEach(opt => {
                     opt.classList.remove('selected');
                 });
-                
-                // 현재 옵션 선택
+
+                // 현재 클릭된 옵션에 'selected' 클래스 추가
                 this.classList.add('selected');
+
+                // 답변 저장 (단일 선택)
                 answers[question] = value;
                 
                 updateProgress();
-                
-                // Google Analytics 이벤트 (선택사항)
-                // gtag('event', 'quiz_answer', {
-                //     'question': question,
-                //     'answer': value
-                // });
             });
         });
-        
-        // 차량 데이터베이스
-        const carDatabase = {
-            // 출퇴근용
-            commute: {
-                compact: {
-                    gasoline: { name: "현대 i20", price: "1,500만원", fuel: "16km/L", features: ["경제성", "주차 편의", "연비 우수"] },
-                    hybrid: { name: "토요타 프리우스", price: "2,800만원", fuel: "22km/L", features: ["친환경", "연비 최고", "조용함"] },
-                    electric: { name: "현대 아이오닉 5", price: "4,200만원", fuel: "전기", features: ["무공해", "첨단 기술", "급속충전"] }
-                },
-                midsize: {
-                    gasoline: { name: "현대 쏘나타", price: "2,800만원", fuel: "13km/L", features: ["안락함", "넓은 실내", "안전성"] },
-                    hybrid: { name: "기아 K5 하이브리드", price: "3,200만원", fuel: "18km/L", features: ["연비 우수", "스타일리시", "정숙성"] }
-                }
-            },
-            // 가족용
-            family: {
-                suv: {
-                    gasoline: { name: "현대 싼타페", price: "3,500만원", fuel: "11km/L", features: ["넓은 공간", "7인승", "안전성"] },
-                    hybrid: { name: "기아 쏘렌토 하이브리드", price: "4,000만원", fuel: "14km/L", features: ["연비 우수", "가족친화", "다용도"] }
-                },
-                large: {
-                    gasoline: { name: "기아 카니발", price: "4,200만원", fuel: "10km/L", features: ["11인승", "캠핑카 개조", "최대 적재"] }
-                }
-            },
-            // 레저용
-            leisure: {
-                suv: {
-                    gasoline: { name: "쉐보레 트레일블레이저", price: "3,800만원", fuel: "12km/L", features: ["4륜구동", "험로주행", "견인능력"] },
-                    diesel: { name: "쌍용 렉스턴", price: "3,200만원", fuel: "13km/L", features: ["토크 우수", "견인능력", "경제성"] }
-                }
-            },
-            // 업무용
-            business: {
-                large: {
-                    gasoline: { name: "제네시스 G90", price: "8,500만원", fuel: "9km/L", features: ["럭셔리", "위엄", "최고급 내장"] },
-                    hybrid: { name: "렉서스 LS500h", price: "12,000만원", fuel: "12km/L", features: ["프리미엄", "친환경", "극상의 편의"] }
-                }
-            }
-        };
-        
+
+        // 차량 데이터베이스 (2025년 한국 중고차 시장 동향을 반영하여 업데이트)
+        const allCars = [
+            // 300만원 이하 중고차
+            { name: "르노삼성 SM3 (초저가 이천원)", year: "2005-2009년식 (주행거리 많음)", price: 100, fuel: ["gasoline"], features: ["진정한 가성비", "수리용 부품 동봉", "새 차가 필요 없는 분께", "CVT, 미션 이슈가 있으나 폐차하면 그만."], budget_category: "under300", origin: "domestic", usage: ["commute"], size: ["compact"], type: "used" },
+            { name: "기아 모닝 (JA 이전)", year: "2011-2015년식 (주행거리 10만km 이상)", price: 250, fuel: ["gasoline", "lpg"], features: ["가장 저렴한 경차", "초보 운전자 추천", "유지비 저렴", "시내 운전 최적화"], budget_category: "under300", origin: "domestic", usage: ["commute"], size: ["compact"], type: "used" },
+            { name: "쉐보레 스파크 (M300)", year: "2010-2015년식", price: 280, fuel: ["gasoline"], features: ["경차", "튼튼한 차체", "수동 미션 연비 극강"], budget_category: "under300", origin: "domestic", usage: ["commute"], size: ["compact"], type: "used" },
+
+            // 300만원 ~ 600만원 중고차
+            { name: "현대 아반떼 HD/MD", year: "2010-2014년식", price: 400, fuel: ["gasoline", "lpg"], features: ["국민 준중형 세단", "무난한 디자인", "저렴한 유지비"], budget_category: "3m_6m", origin: "domestic", usage: ["commute", "family"], size: ["midsize"], type: "used" },
+            { name: "기아 K3 (YD)", year: "2012-2015년식", price: 450, fuel: ["gasoline"], features: ["준중형 세단", "깔끔한 디자인", "젊은층 선호"], budget_category: "3m_6m", origin: "domestic", usage: ["commute"], size: ["midsize"], type: "used" },
+            { name: "현대 쏘나타 LF (택시부활)", year: "2014-2016년식 (20만km+)", price: 500, fuel: ["lpg", "gasoline"], features: ["넓은 실내", "주행거리는 숫자일 뿐", "진정한 가성비 종결자"], budget_category: "3m_6m", origin: "domestic", usage: ["commute", "business", "family"], size: ["midsize"], type: "used" },
+            { name: "쌍용 코란도 C", year: "2011-2015년식", price: 550, fuel: ["diesel"], features: ["가성비 좋은 SUV", "튼튼한 하체", "레저 활동 적합"], budget_category: "3m_6m", origin: "domestic", usage: ["leisure", "family"], size: ["suv"], type: "used" },
+            { name: "폭스바겐 골프 6세대", year: "2010-2013년식", price: 580, fuel: ["diesel"], features: ["운전의 재미", "탄탄한 하체", "유럽 스타일"], budget_category: "3m_6m", origin: "imported", usage: ["commute"], size: ["compact"], type: "used" },
+
+            // 600만원 ~ 900만원 중고차
+            { name: "기아 모닝 JA", year: "2017-2020년식", price: 650, fuel: ["gasoline", "lpg"], features: ["신형 경차", "쉬운 주차", "유지비 저렴"], budget_category: "6m_9m", origin: "domestic", usage: ["commute"], size: ["compact"], type: "used" },
+            { name: "현대 아반떼 AD", year: "2015-2017년식", price: 750, fuel: ["gasoline", "lpg"], features: ["국민 준중형", "안정적인 디자인", "합리적인 유지비"], budget_category: "6m_9m", origin: "domestic", usage: ["commute", "family"], size: ["midsize"], type: "used" },
+            { name: "기아 K5 2세대 (JF)", year: "2015-2017년식", price: 800, fuel: ["gasoline", "lpg"], features: ["세련된 디자인", "넓은 실내", "패밀리 세단"], budget_category: "6m_9m", origin: "domestic", usage: ["commute", "family"], size: ["midsize"], type: "used" },
+            { name: "쉐보레 크루즈", year: "2015-2017년식", price: 700, fuel: ["gasoline", "diesel"], features: ["튼튼한 차체", "안정적인 주행감", "디젤 연비"], budget_category: "6m_9m", origin: "domestic", usage: ["commute"], size: ["midsize"], type: "used" },
+            { name: "BMW 118d (F20)", year: "2014-2016년식", price: 880, fuel: ["diesel"], features: ["운전의 재미", "연비 좋은 디젤", "컴팩트 해치백"], budget_category: "6m_9m", origin: "imported", usage: ["commute"], size: ["compact"], type: "used" },
+
+            // 900만원 ~ 1,200만원 중고차
+            { name: "현대 쏘나타 뉴 라이즈", year: "2017-2019년식", price: 1000, fuel: ["gasoline", "lpg"], features: ["넓은 실내", "패밀리 세단", "준수한 주행 성능"], budget_category: "9m_12m", origin: "domestic", usage: ["commute", "family"], size: ["midsize"], type: "used" },
+            { name: "기아 스포티지 (QL)", year: "2016-2019년식", price: 1100, fuel: ["diesel", "gasoline", "lpg"], features: ["실용적인 중형 SUV", "세련된 디자인", "다용도 활용 가능"], budget_category: "9m_12m", origin: "domestic", usage: ["family", "leisure"], size: ["suv"], type: "used" },
+            { name: "르노삼성 QM6 (GDe)", year: "2017-2019년식", price: 1150, fuel: ["gasoline", "lpg"], features: ["중형 SUV", "정숙한 주행", "LPG 모델 연비 효율", "CVT, 미션 이슈가 있으나 폐차하면 그만."], budget_category: "9m_12m", origin: "domestic", usage: ["family", "leisure"], size: ["suv"], type: "used" },
+            { name: "현대 코나", year: "2018-2021년식", price: 1050, fuel: ["gasoline", "diesel"], features: ["소형 SUV", "개성있는 디자인", "도심형 SUV"], budget_category: "9m_12m", origin: "domestic", usage: ["commute", "leisure"], size: ["compact", "suv"], type: "used" },
+            { name: "아우디 A4 (B8)", year: "2014-2016년식", price: 1180, fuel: ["gasoline", "diesel"], features: ["수입 세단의 가성비", "탄탄한 주행감", "세련된 디자인"], budget_category: "9m_12m", origin: "imported", usage: ["commute", "business"], size: ["midsize"], type: "used" },
+
+            // 1,200만원 ~ 1,500만원 중고차
+            { name: "현대 그랜저 HG (LPI)", year: "2011-2016년식", price: 1250, fuel: ["lpg"], features: ["성공의 상징 그랜저", "넓고 쾌적한 실내", "연비 좋은 LPG 대형 세단"], budget_category: "12m_15m", origin: "domestic", usage: ["business", "family"], size: ["large"], type: "used" },
+            { name: "기아 쏘렌토 (UM)", year: "2015-2017년식", price: 1350, fuel: ["diesel", "gasoline"], features: ["패밀리 SUV", "넓은 실내 공간", "안정적인 주행"], budget_category: "12m_15m", origin: "domestic", usage: ["family", "leisure"], size: ["suv"], type: "used" },
+            { name: "현대 투싼 (TL)", year: "2015-2017년식", price: 1300, fuel: ["diesel", "gasoline"], features: ["준중형 SUV", "실용성", "무난한 디자인"], budget_category: "12m_15m", origin: "domestic", usage: ["commute", "leisure"], size: ["suv"], type: "used" },
+            { name: "메르세데스-벤츠 C200 (W204)", year: "2013-2015년식", price: 1450, fuel: ["gasoline"], features: ["고급스러운 브랜드", "컴팩트 세단", "도심 주행"], budget_category: "12m_15m", origin: "imported", usage: ["commute", "business"], size: ["midsize"], type: "used" },
+            { name: "미니 쿠퍼 3도어 (F56)", year: "2015-2018년식", price: 1480, fuel: ["gasoline"], features: ["개성 만점 디자인", "운전의 재미", "젊은 감각"], budget_category: "12m_15m", origin: "imported", usage: ["commute", "leisure"], size: ["compact"], type: "used" },
+
+
+            // 1,500만원 ~ 1,800만원 중고차
+            { name: "현대 아반떼 (CN7)", year: "2020-2022년식", price: 1600, fuel: ["gasoline", "lpg"], features: ["사회 초년생 추천", "세련된 디자인", "합리적인 연비"], budget_category: "15m_18m", origin: "domestic", usage: ["commute", "family"], size: ["midsize"], type: "used" },
+            { name: "기아 셀토스 (SP2)", year: "2019-2021년식", price: 1750, fuel: ["gasoline"], features: ["소형 SUV", "개성 있는 디자인", "실용적인 공간"], budget_category: "15m_18m", origin: "domestic", usage: ["commute", "leisure"], size: ["compact", "suv"], type: "used" },
+            { name: "현대 쏘나타 (DN8)", year: "2019-2021년식", price: 1780, fuel: ["gasoline", "lpg"], features: ["넓은 실내", "패밀리 세단", "준수한 주행 성능"], budget_category: "15m_18m", origin: "domestic", usage: ["commute", "family"], size: ["midsize"], type: "used" },
+            { name: "폭스바겐 제타 (A7)", year: "2019-2022년식", price: 1700, fuel: ["gasoline"], features: ["수입 세단의 가성비", "독일차의 기본기", "깔끔한 디자인"], budget_category: "15m_18m", origin: "imported", usage: ["commute"], size: ["midsize"], type: "used" },
+            { name: "BMW 320i (F30)", year: "2016-2018년식", price: 1790, fuel: ["gasoline"], features: ["운전의 즐거움", "세련된 디자인", "프리미엄 브랜드"], budget_category: "15m_18m", origin: "imported", usage: ["commute", "leisure"], size: ["midsize"], type: "used" },
+
+
+            // 1,800만원 ~ 2,000만원 중고차
+            { name: "쉐보레 트레일블레이저", year: "2020-2022년식", price: 1950, fuel: ["gasoline"], features: ["강력한 터보 엔진", "안정적인 주행", "개성 있는 디자인"], budget_category: "18m_20m", origin: "domestic", usage: ["commute", "leisure"], size: ["compact", "suv"], type: "used" },
+            { name: "현대 코나 EV", year: "2019-2021년식", price: 1900, fuel: ["electric"], features: ["소형 전기차", "도심 주행 최적화", "전기차 보조금"], budget_category: "18m_20m", origin: "domestic", usage: ["commute"], size: ["compact", "suv"], type: "used" },
+            { name: "메르세데스-벤츠 A클래스 (W177)", year: "2018-2020년식", price: 1980, fuel: ["gasoline", "diesel"], features: ["컴팩트 벤츠", "세련된 디자인", "도심 주행 최적화"], budget_category: "18m_20m", origin: "imported", usage: ["commute"], size: ["compact"], type: "used" },
+            { name: "폭스바겐 티록", year: "2020-2022년식", price: 1850, fuel: ["diesel"], features: ["컴팩트 SUV", "독특한 디자인", "유럽 감성"], budget_category: "18m_20m", origin: "imported", usage: ["commute", "leisure"], size: ["compact", "suv"], type: "used" }
+
+            // 2천만원 이상의 차량 데이터는 모두 제거되었습니다.
+        ];
+
         // 차량 추천 로직
         function recommendCar() {
-            if (Object.keys(answers).length < 4) {
-                alert('모든 질문에 답해주세요!');
+            const totalQuestions = 5; // 총 질문 수
+            const answeredQuestionsCount = Object.keys(answers).filter(q => answers[q] !== undefined).length; // 선택된 옵션이 있는 질문 수
+
+            if (answeredQuestionsCount < totalQuestions) {
+                alert('모든 질문에 한 가지 옵션을 선택해주세요!');
                 return;
             }
-            
-            const usage = answers['1'];
-            const size = answers['2'];
-            const fuel = answers['3'];
-            const budget = answers['4'];
-            
-            let recommendations = [];
-            
-            // 용도별 차량 필터링
-            if (carDatabase[usage] && carDatabase[usage][size] && carDatabase[usage][size][fuel]) {
-                recommendations.push(carDatabase[usage][size][fuel]);
+
+            const selectedBudget = answers['4'];
+            const selectedUsage = answers['1'];
+            const selectedSize = answers['2'];
+            const selectedFuel = answers['3'];
+            const selectedOrigin = answers['5'];
+
+            let gagRecommendations = [];
+            // 개그 요소 우선 추천 로직 (예산이 '300만원 이하'만 단독으로 선택되었을 때)
+            if (selectedBudget === 'under300') {
+                const sm3Gag = allCars.find(car => car.name === "르노삼성 SM3 (초저가 이천원)");
+                const lfSonataGag = allCars.find(car => car.name === "현대 LF 쏘나타 (택시부활)"); // 이 차는 현재 3m_6m 범위로 조정됨
+
+                if (sm3Gag && sm3Gag.budget_category === selectedBudget) gagRecommendations.push(sm3Gag);
+                // LF쏘나타 (택시부활)은 현재 300-600만원에 있으므로 여기서는 추천 안함.
+                // 만약 저렴한 다른 개그 차량이 있다면 여기에 추가 가능
+            }
+
+            // 필터링된 차량 목록 초기화 (모든 중고차)
+            let filteredCars = allCars.filter(car => car.type === "used");
+
+            // 1차 필터링: 국적 (가장 먼저 적용하여 정확도 높임)
+            if (selectedOrigin) {
+                filteredCars = filteredCars.filter(car => car.origin === selectedOrigin);
+            }
+
+            // 2차 필터링: 예산
+            if (selectedBudget) {
+                filteredCars = filteredCars.filter(car => car.budget_category === selectedBudget);
+            }
+
+            // 3차 필터링: 나머지 조건 (용도, 크기, 연료 타입)
+            let perfectMatches = filteredCars.filter(car => {
+                let matches = true;
+                if (selectedUsage) {
+                    matches = matches && car.usage.includes(selectedUsage);
+                }
+                if (selectedSize) {
+                    matches = matches && car.size.includes(selectedSize);
+                }
+                if (selectedFuel) {
+                    matches = matches && car.fuel.includes(selectedFuel);
+                }
+                return matches;
+            });
+
+            let finalRecommendations = [];
+
+            if (perfectMatches.length > 0) {
+                finalRecommendations = perfectMatches;
+            } else if (filteredCars.length > 0) {
+                // 국적과 예산 조건만 만족하는 차량이 있다면 해당 차량들을 추천
+                finalRecommendations = filteredCars;
+            } else {
+                // 모든 필터링 조건 (국적, 예산 포함)에 맞는 차량이 없을 경우
+                // "죄송합니다" 메시지 출력 유도
+                finalRecommendations = [];
             }
             
-            // 추가 추천 로직 (비슷한 차량들)
-            Object.keys(carDatabase).forEach(use => {
-                Object.keys(carDatabase[use]).forEach(sz => {
-                    Object.keys(carDatabase[use][sz]).forEach(fl => {
-                        const car = carDatabase[use][sz][fl];
-                        if (!recommendations.includes(car)) {
-                            recommendations.push(car);
-                        }
-                    });
-                });
-            });
+            // 개그 추천을 먼저 배치하고, 나머지는 일반 추천으로 채움
+            // 단, 개그 추천도 선택된 예산과 국적에 맞아야 함
+            let recommendationsToShow = gagRecommendations.filter(car => 
+                (!selectedBudget || car.budget_category === selectedBudget) &&
+                (!selectedOrigin || car.origin === selectedOrigin)
+            );
             
-            // 최대 3개 추천
-            recommendations = recommendations.slice(0, 3);
-            
-            displayResults(recommendations);
-            
-            // Google Analytics 이벤트 (선택사항)
-            // gtag('event', 'recommendation_completed', {
-            //     'usage': usage,
-            //     'size': size,
-            //     'fuel': fuel,
-            //     'budget': budget
-            // });
-            
-            // 결과 표시 후 팝업 광고 및 하단 광고 표시
+            const remainingCount = 5 - recommendationsToShow.length;
+
+            if (remainingCount > 0) {
+                // finalRecommendations에서 이미 recommendationsToShow에 포함된 차량은 제외
+                const otherCars = finalRecommendations.filter(car => !recommendationsToShow.includes(car));
+                // 랜덤하게 섞어서 남은 개수만큼 추가
+                for (let i = otherCars.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [otherCars[i], otherCars[j]] = [otherCars[j], otherCars[i]];
+                }
+                recommendationsToShow = [...recommendationsToShow, ...otherCars.slice(0, remainingCount)];
+            }
+
+
+            displayResults(recommendationsToShow);
+
+            // 결과 표시 후 하단 광고 표시
             setTimeout(() => {
-                showPopup();
-                document.getElementById('bottomAdContainer').style.display = 'block';
-            }, 2000);
+                document.getElementById('bottomAdContainer').style.display = 'block'; // 하단 광고 표시
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            }, 500); // 0.5초 후 하단 광고 표시
         }
-        
+
         // 결과 표시
         function displayResults(cars) {
             const resultDiv = document.getElementById('result');
-            
-            let html = '<h2>🎯 당신에게 추천하는 차량들</h2>';
-            
-            cars.forEach((car, index) => {
-                html += `
-                    <div class="car-card">
-                        <div class="car-name">${index + 1}. ${car.name}</div>
-                        <div class="car-details">
-                            <div class="detail-item">💰 ${car.price}</div>
-                            <div class="detail-item">⛽ ${car.fuel}</div>
+
+            let html = '<h2>🎯 당신에게 추천하는 중고차들</h2>'; // 제목 변경
+
+            if (cars.length === 0) {
+                html += '<p>죄송합니다. 현재 조건에 맞는 중고차를 찾을 수 없습니다. 조건을 완화하여 다시 시도해보세요.</p>';
+            } else {
+                cars.forEach((car, index) => {
+                    html += `
+                        <div class="car-card">
+                            <div class="car-name">${index + 1}. ${car.name} (${car.year})</div>
+                            <div class="car-details">
+                                <div class="detail-item">💰 ${car.price}만원</div>
+                                <div class="detail-item">⛽ ${Array.isArray(car.fuel) ? car.fuel.map(f => {
+                                    if (f === "gasoline") return "휘발유";
+                                    if (f === "diesel") return "경유";
+                                    if (f === "hybrid") return "하이브리드";
+                                    if (f === "electric") return "전기";
+                                    if (f === "lpg") return "LPG";
+                                    if (f === "hydrogen") return "수소";
+                                    return f;
+                                }).join(', ') : car.fuel}</div>
+                            </div>
+                            <p><strong>특징:</strong> ${car.features.join(', ')}</p>
                         </div>
-                        <p><strong>특징:</strong> ${car.features.join(', ')}</p>
-                    </div>
-                `;
-            });
-            
+                    `;
+                });
+            }
+
             resultDiv.innerHTML = html;
             resultDiv.style.display = 'block';
-            
+
             // 결과로 스크롤
             resultDiv.scrollIntoView({ behavior: 'smooth' });
         }
-        
-        // 광고 클릭 처리
-        function handleAdClick(adType) {
-            console.log(`광고 클릭됨: ${adType}`);
-            
-            // Google Analytics 이벤트 (선택사항)
-            // gtag('event', 'ad_click', {
-            //     'ad_type': adType
-            // });
-            
-            alert(`${adType} 광고를 클릭하셨습니다!\n실제 서비스에서는 광고 페이지로 이동합니다.`);
-        }
-        
-        // 팝업 광고 표시
-        function showPopup() {
-            document.getElementById('popupOverlay').style.display = 'flex';
-            
-            // Google Analytics 이벤트 (선택사항)
-            // gtag('event', 'popup_shown');
-        }
-        
-        // 팝업 광고 닫기
-        function closePopup() {
-            document.getElementById('popupOverlay').style.display = 'none';
-        }
-        
-        // 자동 팝업 (페이지 로드 후 5초)
-        setTimeout(() => {
-            showPopup();
-        }, 5000);
-        
-        // 팝업 외부 클릭시 닫기
-        document.getElementById('popupOverlay').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closePopup();
-            }
-        });
-        
-        // 페이지 로드 시 Google Analytics 페이지뷰 (선택사항)
-        // gtag('config', 'GA_MEASUREMENT_ID', {
-        //     page_title: '차량 추천 서비스',
-        //     page_location: window.location.href
-        // });
     </script>
 </body>
 </html>
